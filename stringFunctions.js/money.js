@@ -11,3 +11,16 @@ function commafy( num ) {
   }
   return str.join('.');
 }
+
+/**
+* Replace all occurence of string by another variable in paragraph
+**/
+htmldata.replace(/{link}/g, 'http://spacelet.com');
+
+/**
+* remove all non numeric values (excluding a . and -)):
+*
+* https://stackoverflow.com/questions/6223235/javascript-converting-and-exploding-string-to-number
+*
+**/
+parseFloat('$148,326.00'.replace(/[^0-9.-]+/g, ''))
