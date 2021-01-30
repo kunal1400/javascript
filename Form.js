@@ -22,3 +22,34 @@ jQuery.fn.serializeObject = function() {
     });
     return o;
 }
+
+/**
+* This function will count the number of type and remaing character in textarea
+**/
+function textCounter(field) {
+  var maxlimit = jQuery(field).attr("maxlength")
+  if ( field.value.length > maxlimit ) {
+    field.value = field.value.substring( 0, maxlimit );
+    return false;
+  } else {
+    var typedChar = maxlimit - field.value.length;
+    jQuery(field).next().find("span").text(typedChar)
+  }
+}
+
+/**
+* Function for calling post api
+**/
+function callPostApi(data, cb) {
+  fetch('URL', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+  .then(response => response.json())
+  .then((data) => {
+    cb(data)
+  })
+}
