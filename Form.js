@@ -1,22 +1,4 @@
-/**
-* Hack of default HTML submit form
-**/
-jQuery("form").on("submit",function(e) { 
-    var formData = jQuery(this).serializeArray()
-    console.log(formData)
-    jQuery(this).unbind('submit').submit()
-})
-
-/**
-* Simple function to get form data in array
-* <form name="myForm" onsubmit="return validateMyForm();">
-**/
-function getAppointmentData(e) {
-	var formData = jQuery(e).serializeArray()
-	return false
-}
-
-jQuery.fn.serializeObject = function() {
+/*jQuery.fn.serializeObject = function() {
     var o = {};
     var a = this.serializeArray();
     $.each(a, function() {
@@ -30,7 +12,7 @@ jQuery.fn.serializeObject = function() {
         }
     });
     return o;
-}
+}*/
 
 /**
 * This function will count the number of type and remaing character in textarea
@@ -61,4 +43,37 @@ function callPostApi(data, cb) {
   .then((data) => {
     cb(data)
   })
+}
+
+/**
+* Simple function to get form data in array and then get its json
+* This is very helpful in calling APIs
+*
+* <form name="myForm" onsubmit="return getAppointmentData();">
+*
+**/
+function getAppointmentData(e) {
+	var formData = jQuery(e).serializeArray()
+	var formObj = convertSerializeArrayToObject(formData)
+	console.log(formData, formObj, "formData+formObj")
+	return false
+}
+
+/**
+* This is tricky function getting the formdata array and returning
+* the object
+**/
+function convertSerializeArrayToObject( serializeArray ) {
+    var o = {};
+    $.each(serializeArray, function() {
+        if (o[this.name] !== undefined) {
+            if (!o[this.name].push) {
+                o[this.name] = [o[this.name]];
+            }
+            o[this.name].push(this.value || '');
+        } else {
+            o[this.name] = this.value || '';
+        }
+    });
+    return o;
 }
