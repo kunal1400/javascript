@@ -1,12 +1,20 @@
 /**
 * Hack of default HTML submit form
-* <form name="myForm" onsubmit="return validateMyForm();">
 **/
 jQuery("form").on("submit",function(e) { 
     var formData = jQuery(this).serializeArray()
     console.log(formData)
     jQuery(this).unbind('submit').submit()
 })
+
+/**
+* Simple function to get form data in array
+* <form name="myForm" onsubmit="return validateMyForm();">
+**/
+function getAppointmentData(e) {
+	var formData = jQuery(e).serializeArray()
+	return false
+}
 
 jQuery.fn.serializeObject = function() {
     var o = {};
