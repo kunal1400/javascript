@@ -49,7 +49,7 @@ function callPostApi(data, cb) {
 * Simple function to get form data in array and then get its json
 * This is very helpful in calling APIs
 *
-* <form name="myForm" onsubmit="return getAppointmentData();">
+* <form name="myForm" onsubmit="return getAppointmentData(this);">
 *
 **/
 function getAppointmentData(e) {
