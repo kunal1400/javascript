@@ -74,7 +74,9 @@ jQuery.fn.serializeControls = function() {
 * -ex -
 * let url1 = updateQueryStringParameter(product_url, 'variant', variantId)
 * let url2 = updateQueryStringParameter(url1, 'diamondType', variant.option1)
-* let url3 = updateQueryStringParameter(url2, 'metal', variant.option2)
+* let url3 = updateQueryStringParameter(window.location.href, 'metal', variant.option2)
+*
+* Adding ID in URL: updateQueryStringParameter(newUrl, 'af', "#AppointmentFormWrapper")
 *
 **/
 function updateQueryStringParameter(uri, key, value) {
