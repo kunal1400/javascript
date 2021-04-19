@@ -108,3 +108,18 @@ for (var i = 0; i < 50; i++) {
   frames.push(image)
 }
 console.log(frames)
+
+/**
+* Replace all illegal character and spaces from file name except dot
+**/
+const fixFileName = ( str ) => {
+	return str.replace(/[^A-Z0-9.]+/ig, "_");
+}
+
+/**
+* Replace all illegal character and spaces from file name except dot
+**/
+const getExtension = ( str ) => {
+	return str.split('.').pop();
+}
+
