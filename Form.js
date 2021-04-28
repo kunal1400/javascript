@@ -65,7 +65,7 @@ function getAppointmentData(e) {
 **/
 function convertSerializeArrayToObject( serializeArray ) {
     var o = {};
-    $.each(serializeArray, function() {
+    jQuery.each(serializeArray, function() {
         if (o[this.name] !== undefined) {
             if (!o[this.name].push) {
                 o[this.name] = [o[this.name]];
