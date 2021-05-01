@@ -91,6 +91,29 @@ function updateQueryStringParameter(uri, key, value) {
 }
 
 /**
+* https://developer.mozilla.org/en-US/docs/Web/API/History/pushState
+* 
+* This function update the query param if key is present otherwise add the query param
+**/
+function updateQueryString(key, value) {
+	const url = new URL(window.location);
+	url.searchParams.set(key, value);
+	window.history.pushState({}, '', url);
+}
+
+/**
+* This function removes the hash from query param
+* Useful for owl carousel naviation
+**/
+function removeUrlHash () { 
+	// window.location.href.substr(0, window.location.href.indexOf('#'))
+	let urlWithoutHash = window.location.href.split('#')[0]
+	if(window.history) {
+		window.history.pushState({ prevUrl: window.location.href }, null, urlWithoutHash);
+	}
+}
+
+/**
 * This function will replace number between _ and . and it will be helpful for getting frames
 *
 * -ex -
