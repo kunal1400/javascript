@@ -24,3 +24,10 @@ htmldata.replace(/{link}/g, 'http://spacelet.com');
 *
 **/
 parseFloat('$148,326.00'.replace(/[^0-9.-]+/g, ''))
+
+/**
+* Removing the Spaces from String
+**/
+function removeSpace(txt) {
+  return String(`${txt}`.replace(/\s/g, ''))
+}
