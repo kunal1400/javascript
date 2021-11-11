@@ -146,3 +146,22 @@ const getExtension = ( str ) => {
 	return str.split('.').pop();
 }
 
+/**
+* This function will remove the passed parameter from URL and returns a new URL
+**/
+function getUrlWithoutParam( d ) {
+  if(window.location.search && window.location.search.length > 0){
+    let items = window.location.search.split("&")
+    if( items && items.length > 0) {
+      let newItems = []
+      items.map(function(item, i){
+	if( item.indexOf(`${did}=`) === -1 ){
+	  newItems.push(item)
+	}
+      })
+      return window.location.pathname+newItems.join("&")
+    }
+  } else {
+    return null
+  }
+}
