@@ -22,3 +22,19 @@ function getLocalStorageByKeyMatch(key) {
     }
     return item
 }
+
+
+/**
+* This function will work on mobile
+**/
+(function($) {
+	$(window).on('scroll', function() {
+    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+      // true for mobile device
+      console.log("mobile device");
+    }
+    else {
+        console.log("not a mobile device");
+    }		
+	});
+})( jQuery );
