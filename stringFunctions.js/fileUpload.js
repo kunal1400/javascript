@@ -24,3 +24,40 @@ const base64MimeType = (encoded) => {
 
   return result;
 }
+
+/**
+ * 
+ * @param {*} file - File object
+ * @param {*} returnType - base64, arrayBuffer, BinaryString, text
+ * @param {*} cb - cb function with return type and data
+ */
+function PreviewFile( file, cb, returnType='base64' ) {
+    let preview = null    
+    const reader = new FileReader();
+
+    reader.addEventListener("load", () => {        
+        cb({ [returnType]: reader.result})
+    }, false);  
+
+    switch ( returnType ) {
+        case 'base64':
+            reader.readAsDataURL(file);
+        break;
+
+        case 'arrayBuffer':
+            reader.readAsArrayBuffer(file);
+        break;
+
+        case 'binaryString':
+            reader.readAsBinaryString(file);
+        break;
+
+        case 'text':
+            reader.readAsText(file);
+        break;
+
+        default:
+            reader.readAsDataURL(file);
+        break;
+    }
+}
