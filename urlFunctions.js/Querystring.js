@@ -165,3 +165,19 @@ function getUrlWithoutParam( d ) {
     return null
   }
 }
+
+/**
+* Opening all anchor tag links in new tab of particular section
+**/
+jQuery(".post-content a").on('click',function(e){
+    e.preventDefault()
+    let link = jQuery(this).attr("href");
+    if(link) {
+        let win = window.open(link, '_blank');
+        if (win) {
+            win.focus();
+        } else {
+            alert('Please allow popups for this website');
+        }
+    }
+})
