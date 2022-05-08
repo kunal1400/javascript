@@ -166,18 +166,24 @@ function getUrlWithoutParam( d ) {
   }
 }
 
-/**
-* Opening all anchor tag links in new tab of particular section
-**/
-jQuery(".post-content a").on('click',function(e){
-    e.preventDefault()
-    let link = jQuery(this).attr("href");
-    if(link) {
-        let win = window.open(link, '_blank');
-        if (win) {
-            win.focus();
+/*****
+* This function will open all external links inside "post-content" class in new tab. 
+*****/
+jQuery(document).ready(function(){
+    jQuery(".post-content a").on('click',function(e){
+        e.preventDefault()
+        let link = jQuery(this).attr("href");
+        let isCurrentDomain = link.indexOf("emocha.smarthostpros.com")
+        // This is external link
+        if(link && isCurrentDomain === -1) {
+            let win = window.open(link, '_blank');
+            if (win) {
+                win.focus();
+            } else {
+                alert('Please allow popups for this website');
+            }
         } else {
-            alert('Please allow popups for this website');
+            window.location.href = link;
         }
-    }
+    })
 })
