@@ -167,15 +167,25 @@ function getUrlWithoutParam( d ) {
 }
 
 /*****
-* This function will open all external links inside "post-content" class in new tab. 
+* This function will open all external links inside "post-content" class in new tab.
+* -ex- https://emocha.smarthostpros.com
 *****/
 jQuery(document).ready(function(){
     jQuery(".post-content a").on('click',function(e){
         e.preventDefault()
         let link = jQuery(this).attr("href");
-        let isCurrentDomain = link.indexOf("emocha.smarthostpros.com")
-        // This is external link
-        if(link && isCurrentDomain === -1) {
+        let linksToMatch = ["emocha.smarthostpros.com", "#"];
+        // Checking if clicked link has any of the matching character
+        const linkMatched = linksToMatch.some(element => {
+            if (link.indexOf(element) !== -1) {
+                return true;
+            }
+            return false;
+        });
+        console.log(linkMatched, "linkMatched");
+        // let isCurrentDomain = link.indexOf("emocha.smarthostpros.com", "#")
+        // This is external link or not modal/popup then 
+        if(link && !linkMatched) {
             let win = window.open(link, '_blank');
             if (win) {
                 win.focus();
