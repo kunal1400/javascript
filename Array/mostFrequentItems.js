@@ -24,6 +24,9 @@ Array.prototype.mostFrequent = function() {
 let op = arr1.mostFrequent()
 console.log(op)
 
+/**
+ * Using object
+ */
 Array.prototype.findDuplicates = function() {
     let obj = {}
     for(i=0; i<this.length; i++) {
@@ -44,3 +47,10 @@ Array.prototype.findDuplicates = function() {
 
 let op1 = arr.findDuplicates();
 console.log(op1)
+
+/**
+ * JavaScript program to filter out non-unique values in an array.
+ * const obj = [1, 2, 2, 3, 4, 4, 5]
+ * [1,3,5]
+ */
+const uniqueNums = nums.filter(i => nums.indexOf(i) === nums.lastIndexOf(i));

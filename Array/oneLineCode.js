@@ -48,3 +48,15 @@ var arr = [1, 3, 6, 3, -5];
 console.log(arr); // [ 1, 3, 6, 3, -5 ]
 arr.length = 0;
 console.log(arr); // []
+
+/**
+ * Addition of two arrays returns the string representation of the two arrays concatenated.
+ */
+var variableC = [6,8] + [7,9];
+console.log(variableC); // 6,87,9
+
+/**
+ * JavaScript program to convert a specified number into an array of digits.
+ */
+const num = 12345;
+const digits = [...`${num}`].map(Number); // [1, 2, 3, 4, 5]
