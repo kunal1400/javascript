@@ -18,3 +18,23 @@ try {
 } finally {
     console.log("clean up")
 }
+
+
+/**
+ * try catch
+ **/
+let message = "Throwing an error forcefully";
+let error = new Error(message);
+let syntaxError = new SyntaxError(message);
+let referenceError = new ReferenceError(message);
+
+
+try {
+    throw error;
+} catch(error) {
+    console.log(error.name);
+    console.log(error.message);
+} finally {
+    // It will run always
+  console.log( 'finally' );
+}
