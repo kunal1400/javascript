@@ -15,7 +15,7 @@ var car1Detail = car.info.bind({
 });
 console.log(car1Detail("kunal"))
 
-// Passing parameter after getting a function
+// Passing parameter in bind function
 var car2Detail = car.info.bind({
     carName: "venue",
     year: 2020

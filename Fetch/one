@@ -1,0 +1,6 @@
+response.text() – read the response and return as text,
+response.json() – parse the response as JSON,
+response.formData() – return the response as FormData object (explained in the next chapter),
+response.blob() – return the response as Blob (binary data with type),
+response.arrayBuffer() – return the response as ArrayBuffer (low-level representation of binary data),
+additionally, response.body is a ReadableStream object, it allows you to read the body chunk-by-chunk, we’ll see an example later.
