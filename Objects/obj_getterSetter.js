@@ -6,8 +6,6 @@ let user = {
     },
     set fullName(value) {
         [this.name, this.surname] = value.split(" ")
-        // this.name = value.split(" ")[0]
-        // this.surname = value.split(" ")[1]
     }
 };
 
