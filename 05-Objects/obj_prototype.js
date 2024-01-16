@@ -38,12 +38,12 @@
         }
     });
     
-    console.log(Object.getPrototypeOf(rabit));
-    for(key in rabit) console.log(key)
-    console.log(rabit.jump)
-    
+    console.log(1, Object.getPrototypeOf(rabit)); // { eat: true }
+    for(key in rabit) console.log(2, key); // eat
+    console.log(3, rabit.jump); // true
+
     Object.setPrototypeOf(rabit, null);
-    console.log(Object.getPrototypeOf(rabit));
-    for(key in rabit) console.log(key)
-    console.log(rabit.jump)
+    console.log(4, Object.getPrototypeOf(rabit)); // null
+    for(key in rabit) console.log(5, key) // NOT CONSOLED
+    console.log(6, rabit.jump) // true
 }

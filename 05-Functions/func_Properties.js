@@ -2,6 +2,7 @@
 /**
  * 1. func.name that returns the name of the function
  */
+
 // Normal function
 function sayHi() {
     alert("Hi");
@@ -58,7 +59,7 @@ alert(many.length); // 2
 
 
 /**
- * 4. Named Function Expression
+ * 4. Named Function Expression(NFE)
  */
 let sayHi = function func(who) {
     if (who) {
