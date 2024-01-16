@@ -72,6 +72,16 @@ class Stack {
         }
         return this.stack;
     }
+
+    shift() {
+        this.stack.shift();
+        return this.stack;
+    }
+
+    unshift(item) {
+        this.stack.unshift(item);
+        return this.stack;
+    }
  }
  
  const item = new Stack();
@@ -88,3 +98,5 @@ class Stack {
 console.log(item.middleItems()) // [3, 2]
 item.manageItems(4);
 console.log(item.mergeStack([10,20,30]))
+console.log(item.shift())
+console.log(item.unshift(10))
