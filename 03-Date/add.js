@@ -13,7 +13,7 @@ const years = addYears( new Date(2014,10,2), 3)
 console.log(years)
 
 /**
- * add specified weeks to a date.
+ * add specified month to a date.
  **/
 const addMonth = (d, n) => new Date(d.setMonth(d.getMonth() + n))
 const month = addMonth( new Date(2014,0,2), 1)
